@@ -1,0 +1,31 @@
+# MySQL.  Versions 5.0+ are recommended.
+#
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: sensetime
+  password: sensetime
+  host: localhost
+  port: 3306
+
+development:
+  <<: *default
+  database: wx_face_signin
+
+test:
+  <<: *default
+  database: wx_face_signin
+
+production:
+  <<: *default
+  database: wx_face_signin
