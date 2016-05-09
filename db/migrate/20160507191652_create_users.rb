@@ -4,10 +4,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nickname
       t.boolean :sex
       t.string :avatar
-      t.string :phone
+      t.string :phone, limit: 128
       t.string :openid
       t.string :profession
-      t.boolean :del
+      t.boolean :del, default: false
 
       t.timestamps null: false
     end
