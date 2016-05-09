@@ -1,6 +1,6 @@
-class CreateScanRecords < ActiveRecord::Migration
+class CreateRecords < ActiveRecord::Migration
   def change
-    create_table :scan_records do |t|
+    create_table :records do |t|
       t.references :user, index: true, foreign_key: true
       t.string :img_path
       t.boolean :sex

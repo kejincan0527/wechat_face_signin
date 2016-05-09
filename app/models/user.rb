@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :scan_records
+	has_many :records
+	has_many :scan_logs
 end

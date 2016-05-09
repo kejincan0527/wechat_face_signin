@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508150631) do
+ActiveRecord::Schema.define(version: 20160509061135) do
 
-  create_table "scan_records", force: :cascade do |t|
+  create_table "records", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "img_path",   limit: 255
     t.boolean  "sex"
@@ -23,7 +23,17 @@ ActiveRecord::Schema.define(version: 20160508150631) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "scan_records", ["user_id"], name: "index_scan_records_on_user_id", using: :btree
+  add_index "records", ["user_id"], name: "index_records_on_user_id", using: :btree
+
+  create_table "scan_logs", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "record_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "scan_logs", ["record_id"], name: "index_scan_logs_on_record_id", using: :btree
+  add_index "scan_logs", ["user_id"], name: "index_scan_logs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",   limit: 255
@@ -37,5 +47,7 @@ ActiveRecord::Schema.define(version: 20160508150631) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_foreign_key "scan_records", "users"
+  add_foreign_key "records", "users"
+  add_foreign_key "scan_logs", "records"
+  add_foreign_key "scan_logs", "users"
 end
