@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  img_path: MyString
+  sex: false
+  age: 1
+  del: false
+
+two:
+  user_id: 
+  img_path: MyString
+  sex: false
+  age: 1
+  del: false
