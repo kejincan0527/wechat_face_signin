@@ -29,12 +29,19 @@ module V1
 				status 200
 				record = Record.new(img_path: params[:img_path], sex: params[:sex], age: params[:age])
 				if record.save
-				 	present code: 200, message: 'Generate new record success'
-				 	present :data, record, with: V1::Entities::Record
+				 	present code: 200, message: 'Generate new record success', url: Wechat.get_qrcode_url(record.id)
+				 	# present :data, record, with: V1::Entities::Record
 			  else
 			 		present code: 400, message: record.errors.full_messages.join(" && ")
 			  end
 			end
+
+			# # 测试使用
+			# post 'get_qrcode_url' do
+			# 	status 200
+			# 	url = Wechat.get_qrcode_url(1)
+			# 	{ url: url }
+			# end
 
 		end
 	end
