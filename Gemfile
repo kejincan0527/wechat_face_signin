@@ -26,6 +26,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'grape', '~> 0.15.0'
+
+gem 'grape-entity', '~> 0.4.8'
+
+gem 'grape-swagger', '~> 0.10.4'
+
+gem 'grape-kaminari', '~> 0.1.8'
+
+gem 'rack-cors', :require => 'rack/cors'
+
+gem 'sidekiq'
+
+gem 'sinatra', require: false
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
