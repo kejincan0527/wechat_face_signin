@@ -1,4 +1,5 @@
 class Wechat
+	require 'nokogiri'
 
 	AppID = 'wx613720b24293cfa5'
 	AppSecret = '8b01c7e2eb59d2bd09fdfef3bd3632c3'
