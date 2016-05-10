@@ -10,11 +10,20 @@ class Wechat
 	  return (signature == Digest::SHA1.hexdigest(array.join) ? true : false)
 	end
 
+	# 获取微信xml内容
+  def self.get_xml_content(request, timestamp, nonce, signature)
+    if check_wx_signature(timestamp, nonce, signature)
+      record_id = Nokogiri::XML(request).at('EventKey').content
+    else
+      record_id = nil
+    end
+  end
+
 	# 获取微信acess_token
 	def self.get_access_token
 		begin
-			if Rails.cache.read("access_token")
-				Rails.cache.read("access_token")
+			if Rails.cache.read(:access_token)
+				Rails.cache.read(:access_token)
 			else
 				uri = URI("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=#{AppID}&secret=#{AppSecret}")
 				res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -22,7 +31,7 @@ class Wechat
 				  http.request(req)
 				end
 			  result = JSON.parse(res.body)["access_token"]
-			  Rails.cache.write("access_token", result, expires_in: 1.8.hours)
+			  Rails.cache.write(:access_token, result, expires_in: 1.8.hours)
 			  result
 			end
     rescue => e; p e;

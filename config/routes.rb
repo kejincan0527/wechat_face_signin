@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   
   root                               'static_pages#home'
   
-  post                               'wechats/wx_valid'
+  get  'wechats/wx_receive'         => 'wechats#wx_valid'
+  post 'wechats/wx_receive'         => 'wechats#wx_receive'
 
   resources :scan_records,           only: [:index, :new]
   resources :user,                   only: [:index, :new]
