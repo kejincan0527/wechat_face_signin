@@ -10,7 +10,7 @@ class WechatsController < ApplicationController
 		# if result = Wechat.get_xml_content(request.body.read, params[:timestamp], params[:nonce], params[:signature])
 		if Wechat.check_wx_signature(params[:timestamp], params[:nonce], params[:signature])
 			xml_to_hash = Hash.new
-			request.body.read.xml.css('*').each do |tab|
+			Nokogiri::XML(request.body.read).css('*').each do |tab|
 			    xml_to_hash[tab.node_name] = tab.content
 			end
 		end
