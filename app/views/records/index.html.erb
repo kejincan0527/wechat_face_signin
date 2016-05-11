@@ -1,2 +1,17 @@
-<h1>ScanRecords#index</h1>
-<p>Find me in app/views/scan_records/index.html.erb</p>
+<div>
+	<h1>SenseTime科技展</h3>
+	<h3>签到墙</h6>
+	<p>2016-05-01</p>
+</div>
+<table>
+	<% @records.order(created_at: :desc).each_with_index do |user, idx| %>
+		<tr class="table_content">
+			<td>
+				<img src="<%= image_path('demo_image_file.jpg') %>" style="height: 120px;" class="img-circle"/>
+			</td>
+			<td>路人</td>
+			<td>男</td>
+			<td>25</td>
+		</tr>
+	<% end %>
+</table>

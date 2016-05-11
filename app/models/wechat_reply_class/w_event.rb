@@ -24,7 +24,7 @@ module WechatReplyClass
       if user
         user.update_attributes(openid: @weixin_message.FromUserName)
       end
-      reply_news_message([generate_article('谢谢您的关注','点击查看详情','https://ruby-china-files.b0.upaiyun.com/user/big_avatar/17890.jpg','http://sensetime.com/cn')])
+      reply_news_message([generate_article('谢谢您的关注','点击查看详情','http://fage.29mins.com/assets/demo_image_file.jpg','http://fage.29mins.com/records')])
     end
 
     def unsubscribe
@@ -33,7 +33,7 @@ module WechatReplyClass
 
     def scan
       user = User.find_by(id: @weixin_message.EventKey)
-      reply_news_message([generate_article('扫码颜值机','点击查看详情','https://ruby-china-files.b0.upaiyun.com/user/big_avatar/17890.jpg','http://sensetime.com/cn')])
+      reply_news_message([generate_article('扫码颜值机','点击查看详情','http://fage.29mins.com/assets/demo_image_file.jpg','http://fage.29mins.com/records')])
     end
 
     def common_handle
