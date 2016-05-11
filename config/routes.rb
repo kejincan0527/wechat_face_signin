@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post 'wechats/wx_receive'       => 'wechats#wx_receive'
 
   resources :records,                 only: [:index, :new]
-  resources :user,                    only: [:index, :new]
+  resources :users,                   only: [:index, :new, :create, :edit, :update]
 end

@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
+	require 'nokogiri'
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-	require 'nokogiri'
+
+	private
+
+		def access_page_auth
+			
+		end
 end
