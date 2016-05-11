@@ -164,7 +164,6 @@ module WechatReplyClass
   #   <ThumbMediaId><![CDATA[thumb_media_id]]></ThumbMediaId>
   #   <MsgId>1234567890123456</MsgId>
   # </xml>
-
   class ShortVideo < Message
 
     def MediaId
