@@ -85,8 +85,8 @@
               <div class='col-sm-5 col-xs-5'>
                 <% if (user = record.user) %>
                   <p><%= user.try(:nickname) %></p>
-                  <p><%= user.try(:profession) %></p>
-                  <p><%= user.try(:phone) %></p>
+                  <p><%= user.try(:profession)||"未填写职位" %></p>
+                  <p><%= user.try(:phone)||"未填写联系方式" %></p>
                 <% else %>
                   <p>路人</p>
                   <p>太懒了，什么也没留下</p>
