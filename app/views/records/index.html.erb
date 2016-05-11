@@ -1,17 +1,106 @@
-<div>
-	<h1>SenseTime科技展</h3>
-	<h3>签到墙</h6>
-	<p>2016-05-01</p>
-</div>
-<table>
-	<% @records.order(created_at: :desc).each_with_index do |user, idx| %>
-		<tr class="table_content">
-			<td>
-				<img src="<%= image_path('demo_image_file.jpg') %>" style="height: 120px;" class="img-circle"/>
-			</td>
-			<td>路人</td>
-			<td>男</td>
-			<td>25</td>
-		</tr>
-	<% end %>
-</table>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style type="text/css">
+        html, body{ margin:0; height:100%; }
+/*        body{
+          background-image: url('../image/bg.jpg');
+        }
+*/       .head_img{
+          width: 100px;
+          height: 100px;
+       }
+       .button_div{
+          text-align: center;
+          height: 100%;
+       }
+        .button_div button{
+          position: absolute;
+          bottom: 10%;
+          right: 10%;
+       }
+       .myself{
+          margin-bottom: 40px;
+       }
+      </style>
+      <script type="text/javascript">
+        $(function(){
+          $(".button_div").css('height',$(".button_div").parent().css('height'))
+        })
+      </script>
+	</head>
+	<body>
+    <nav class="nav navbar-default navbar-static-top" style="background-color: #000000;">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#sidebar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="">Sencetime科技展</a>
+      </div>
+      <div class="collapse navbar-collapse" id="sidebar">
+        <ul class="nav navbar-nav">
+          <li><a href="#">个人信息</a></li>
+          <li><a href="#">编辑信息</a></li>
+          <li><a href="#">所有伙伴</a></li>
+        </ul>
+      </div> 
+    </nav>
+  
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <h3 class='text-center'>Sencetime科技展</h3>
+        <h4 class='text-center'>签到墙</h4>
+        <h4 class="text-center">2016-5-11</h4>
+      </div>
+
+      <div class="row-fluid">
+<!--       
+        <div class="well myself">
+          <div class="row">
+            <div class='col-sm-4 col-xs-4'>
+              <img class="img-circle img-responsive head_img" src='../image/bg.jpg'>
+            </div>
+            <div class='col-sm-5 col-xs-5'>
+              <p>刘秋</p>
+              <p>快啊饮食销售总监</p>
+              <p>15811111111</p>
+            </div>
+            <div class='col-sm-3 col-xs-3 button_div'>
+              <p>9-20</p>
+              <button class="btn btn-primary">+好友</button>
+            </div>
+          </div>
+        </div>
+ -->
+        <% @records.order(created_at: :desc).each do |record| %>
+          <div class="well">
+            <div class="row">
+              <div class='col-sm-4 col-xs-4'>
+                <img class="img-circle img-responsive head_img" src='<%= image_path("demo_image_file.jpg") %>'>
+              </div>
+              <div class='col-sm-5 col-xs-5'>
+                <% if record.user %>
+                  <p><%= user.try(:nickname) %></p>
+                  <p><%= user.try(:profession) %></p>
+                  <p><%= user.try(:phone) %></p>
+                <% else %>
+                  <p>路人</p>
+                  <p>太懒了，什么也没留下</p>
+                <% end %>
+              </div>
+              <div class='col-sm-3 col-xs-3 button_div'>
+                <p><%= record.created_at.strftime("%m-%d") %></p>
+                <button class="btn btn-primary" <%= "disabled" if !record.user %> />+好友</button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+	</body>
+</html>
