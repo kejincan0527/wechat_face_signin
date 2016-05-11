@@ -39,7 +39,7 @@ module V1
 			# 测试使用
 			post 'get_qrcode_url' do
 				status 200
-				url = Wechat.get_qrcode_url(13)
+				url = Wechat.get_qrcode_url(1)
 				{ url: url }
 			end
 

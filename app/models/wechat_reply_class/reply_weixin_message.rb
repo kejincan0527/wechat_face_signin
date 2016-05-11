@@ -5,7 +5,7 @@ module WechatReplyClass
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Content      = content
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def generate_music(title, desc, music_url, hq_music_url)
@@ -23,7 +23,7 @@ module WechatReplyClass
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Music        = music
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def generate_article(title, desc, pic_url, link_url)
@@ -42,7 +42,7 @@ module WechatReplyClass
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Articles     = articles
       message.ArticleCount = articles.count
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def generate_video(media_id, desc, title)
@@ -70,7 +70,7 @@ module WechatReplyClass
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Video = video
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def generate_voice(media_id)
@@ -84,7 +84,7 @@ module WechatReplyClass
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Voice = voice
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def generate_image(media_id)
@@ -98,14 +98,14 @@ module WechatReplyClass
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
       message.Image = image
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     def reply_transfer_customer_service_message(from=nil, to=nil)
       message = TransferCustomerServiceReplyMessage.new
       message.FromUserName = from || @weixin_message.ToUserName
       message.ToUserName   = to   || @weixin_message.FromUserName
-      encrypt_message message.to_xml
+      message.to_xml
     end
 
     private

@@ -14,6 +14,7 @@ class WechatsController < ApplicationController
 			    xml_to_hash[tab.node_name] = tab.content
 			end
 		end
+		puts xml_to_hash
 		result = WechatReplyClass::CommonHandle.generate_class(xml_to_hash)
 		render xml: result
 		# render nothing: true
