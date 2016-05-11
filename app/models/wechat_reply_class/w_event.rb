@@ -22,6 +22,7 @@ module WechatReplyClass
     def subscribe
       openid = @weixin_message.FromUserName
       subscribed_user_info = Wechat.get_subscribed_user_info(openid)
+      puts subscribed_user_info
       user = User.create(nickname: subscribed_user_info['nickname'], sex: subscribed_user_info['sex'], avatar: subscribed_user_info['headimgurl'], openid: openid)
       if record = Record.find_by(id: @weixin_message.EventKey.delete('qrscene_'))
         record.update_attributes(user_id: user.id)
