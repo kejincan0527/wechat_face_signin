@@ -5,10 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style type="text/css">
         html, body{ margin:0; height:100%; }
-/*        body{
-          background-image: url('../image/bg.jpg');
-        }
-*/       .head_img{
+       .head_img{
           width: 100px;
           height: 100px;
        }
@@ -23,6 +20,18 @@
        }
        .myself{
           margin-bottom: 40px;
+       }
+       .footer{
+          bottom: 0px;
+          background-color: #000000;
+          width: 100%;
+          height: 7%;
+          text-align: center;
+       }
+       .footer h1{
+          margin-top: 1px;
+          font-size: 140%;
+          line-height: 45px
        }
       </style>
       <script type="text/javascript">
@@ -44,8 +53,8 @@
       <div class="collapse navbar-collapse" id="sidebar">
         <ul class="nav navbar-nav">
           <li><a href="#">个人信息</a></li>
-          <li><a href="#">编辑信息</a></li>
-          <li><a href="#">所有伙伴</a></li>
+          <li><a href="<%= new_user_path %>">编辑信息</a></li>
+          <li><a href="<%= records_path %>">所有伙伴</a></li>
         </ul>
       </div> 
     </nav>
@@ -102,5 +111,6 @@
 
       </div>
     </div>
+    <div class='footer'><h1><%= link_to "编辑我的信息", new_user_path %></h1></div>
 	</body>
 </html>

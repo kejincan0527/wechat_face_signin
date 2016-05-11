@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+
+$('.alert').click(function(){
+	$('.alert').fadeOut("slow");
+})
+setTimeout(function(){
+	$('.alert').fadeOut();
+},5000)
