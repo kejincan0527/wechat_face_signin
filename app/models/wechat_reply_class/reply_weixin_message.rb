@@ -1,5 +1,7 @@
 module WechatReplyClass
   module ReplyWeixinMessage
+    include ReplyMessage
+    
     def reply_text_message(from=nil, to=nil, content)
       message = TextReplyMessage.new
       message.FromUserName = from || @weixin_message.ToUserName

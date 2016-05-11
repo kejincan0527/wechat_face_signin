@@ -3,8 +3,7 @@ module WechatReplyClass
   	include ReplyWeixinMessage
 
   	def initialize(hash)
-        @weixin_message = Message.factory hash
-        # @sangna_config = SangnaConfig.find_by_appid(appid)
+        @weixin_message = Message.factory(hash)
       end
 
     def handle
@@ -29,10 +28,6 @@ module WechatReplyClass
     end
 
     def unsubscribe
-      # customer = CustomerList.find_or_initialize_by(openid:@weixin_message.FromUserName)
-      # customer.del = 2
-      # customer.updatetime = Time.now.to_i
-      # customer.save
       reply_text_message 'success'
     end
 
