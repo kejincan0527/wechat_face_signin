@@ -7,7 +7,6 @@ class WechatsController < ApplicationController
 	end
 
 	def wx_receive
-		# if result = Wechat.get_xml_content(request.body.read, params[:timestamp], params[:nonce], params[:signature])
 		if Wechat.check_wx_signature(params[:timestamp], params[:nonce], params[:signature])
 			xml_to_hash = Hash.new
 			Nokogiri::XML(request.body.read).css('*').each do |tab|
@@ -17,7 +16,6 @@ class WechatsController < ApplicationController
 		puts xml_to_hash
 		result = WechatReplyClass::CommonHandle.generate_class(xml_to_hash)
 		render xml: result
-		# render nothing: true
 	end
 	
 end
