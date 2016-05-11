@@ -83,7 +83,7 @@
                 <img class="img-circle img-responsive head_img" src='<%= image_path("demo_image_file.jpg") %>'>
               </div>
               <div class='col-sm-5 col-xs-5'>
-                <% if record.user %>
+                <% if (user = record.user) %>
                   <p><%= user.try(:nickname) %></p>
                   <p><%= user.try(:profession) %></p>
                   <p><%= user.try(:phone) %></p>

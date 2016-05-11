@@ -55,7 +55,7 @@ class Wechat
 
 	def self.get_subscribed_user_info(openid)
 		begin
-			uri = URI("hhttps://api.weixin.qq.com/cgi-bin/user/info?access_token="+Wechat.get_access_token+"&openid=#{openid}&lang=zh_CN")
+			uri = URI("https://api.weixin.qq.com/cgi-bin/user/info?access_token="+Wechat.get_access_token+"&openid=#{openid}&lang=zh_CN")
 	    res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
 	      req = Net::HTTP::Get.new(uri,{'Content-Type'=>'application/json'})
 	      http.request(req)
