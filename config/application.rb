@@ -23,5 +23,6 @@ module WechatFaceSignin20160508
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.web_console.whitelisted_ips = '58.247.206.0/16'
+    config.autoload_paths += %W(#{config.root}/app/models/wechat_reply_class)
   end
 end

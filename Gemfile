@@ -40,6 +40,8 @@ gem 'sidekiq'
 
 gem 'sinatra', require: false
 
+gem 'roxml'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
