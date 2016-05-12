@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509061135) do
+ActiveRecord::Schema.define(version: 20160512154609) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -36,15 +36,17 @@ ActiveRecord::Schema.define(version: 20160509061135) do
   add_index "scan_logs", ["user_id"], name: "index_scan_logs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "nickname",   limit: 255
-    t.boolean  "sex"
-    t.string   "avatar",     limit: 255
-    t.string   "phone",      limit: 128
-    t.string   "openid",     limit: 255
-    t.string   "profession", limit: 255
-    t.boolean  "del",                    default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.string   "name",          limit: 255
+    t.string   "nickname",      limit: 255
+    t.integer  "sex",           limit: 2
+    t.string   "avatar",        limit: 255
+    t.string   "phone",         limit: 128
+    t.string   "openid",        limit: 255
+    t.string   "profession",    limit: 255
+    t.datetime "subscribed_at"
+    t.boolean  "del",                       default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_foreign_key "records", "users"

@@ -53,6 +53,7 @@ class Wechat
 	  end
 	end
 
+	# 微信文档: http://mp.weixin.qq.com/wiki/1/8a5ce6257f1d3b2afb20f83e72b72ce9.html
 	def self.get_subscribed_user_info(openid)
 		begin
 			uri = URI("https://api.weixin.qq.com/cgi-bin/user/info?access_token="+Wechat.get_access_token+"&openid=#{openid}&lang=zh_CN")
