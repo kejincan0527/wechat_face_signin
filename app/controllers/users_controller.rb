@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :access_page_auth, only: [:profile, :new, :create, :index]
 
   def index
 
