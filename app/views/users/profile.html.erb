@@ -46,7 +46,7 @@
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-user"></span> 姓名
             </span>
-            <input type="text" name="name" class="form-control" value="<%= @user.try(:name) %>" disabled="">
+            <input type="text" name="name" class="form-control" value="<%= current_user.try(:name) %>" disabled="">
           </div>
         </div>
         <div class="group_div">
@@ -54,7 +54,7 @@
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-phone"></span> 手机                
             </span>
-            <input type="text" name="phone" class="form-control" value="<%= @user.try(:phone) %>" disabled>
+            <input type="text" name="phone" class="form-control" value="<%= current_user.try(:phone) %>" disabled>
           </div>
         </div>
           <div class="group_div">
@@ -62,7 +62,7 @@
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-info-sign"></span> 职位                
               </span>
-            <input type="text" name="profession" class="form-control" value="<%= @user.try(:profession) %>" disabled>
+            <input type="text" name="profession" class="form-control" value="<%= current_user.try(:profession) %>" disabled>
           </div>
         </div>
         <br>

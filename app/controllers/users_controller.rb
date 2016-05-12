@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = current_user
   end
 
   def new
