@@ -37,9 +37,15 @@ module V1
 			end
 
 			# 测试使用
+			desc 'Testing to make qrcode_url/测试生成二维码' do
+				success V1::Entities::Record
+			end
+			params do
+				requires :record_id, type: Integer, desc: 'id of record/人脸检测记录ID'
+			end
 			post 'get_qrcode_url' do
 				status 200
-				url = Wechat.get_qrcode_url(1)
+				url = Wechat.get_qrcode_url(params[:record_id])
 				{ url: url }
 			end
 
