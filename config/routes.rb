@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   mount Base => '/api'
   
   root                               'static_pages#home'
+
+  get  'user_profile'             => 'users#profile'
   
   get  'wechats/authorize'        => 'wechats#authorize'
   get  'wechats/wx_receive'       => 'wechats#wx_valid'
