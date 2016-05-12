@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   root                               'static_pages#home'
   
+  get  'wechats/authorize'        => 'wechats#authorize'
   get  'wechats/wx_receive'       => 'wechats#wx_valid'
   post 'wechats/wx_receive'       => 'wechats#wx_receive'
 

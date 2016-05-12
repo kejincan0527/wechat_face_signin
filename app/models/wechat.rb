@@ -65,4 +65,20 @@ class Wechat
 	  end
 	end
 
+	def self.auth_url(redirect_uri)
+		"https://open.weixin.qq.com/connect/oauth2/authorize?appid=#{AppID}&redirect_uri=#{redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+	end
+
+	def self.get_openid_with_code(code)
+		begin
+			uri = URI("https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{AppID}&secret=#{AppSecret}&code=#{code}&grant_type=authorization_code")
+	    res = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+	      req = Net::HTTP::Get.new(uri,{'Content-Type'=>'application/json'})
+	      http.request(req)
+	    end
+	    result = JSON.parse(res.body)
+	  rescue => e; p e;
+	  end
+	end
+
 end

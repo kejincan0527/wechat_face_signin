@@ -1,1 +1,14 @@
-<h1>FaceSign_By_Wechat</h1>
+<!-- <nav class="nav navbar-default navbar-static-top" style="background-color: #000000;">
+  <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#sidebar"></button>
+     <a class="navbar-brand">SenceTime</a>
+  </div>
+</nav>
+ --><!-- 操作提示信息 -->
+<% flash.each do |message_type, message| %>
+  <%= content_tag(:div, message, class: "alert alert-#{message_type}") %> 
+<% end %>
+<div style="margin-left: 10%;">
+  <img src="<%= image_path('wechat_subscribe_qrcode.png') %>" alt="二维码">
+</div>
+
