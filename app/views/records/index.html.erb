@@ -41,23 +41,7 @@
       </script>
 	</head>
 	<body>
-    <nav class="nav navbar-default navbar-static-top" style="background-color: #000000;">
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#sidebar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="">Sencetime科技展</a>
-      </div>
-      <div class="collapse navbar-collapse" id="sidebar">
-        <ul class="nav navbar-nav">
-          <li><a href="#">个人信息</a></li>
-          <li><a href="<%= new_user_path %>">编辑信息</a></li>
-          <li><a href="<%= records_path %>">所有伙伴</a></li>
-        </ul>
-      </div> 
-    </nav>
+    <%= render 'layouts/navbar' %>  
   
     <div class="container-fluid">
       <div class="row-fluid">
