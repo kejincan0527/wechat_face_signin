@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-	before_action :access_page_auth, only: [:index]
+	before_action :access_page_auth, only: :index
 
   def index
   	# order("updated_at DESC, openid ASC")

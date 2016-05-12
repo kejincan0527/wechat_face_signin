@@ -19,6 +19,7 @@ module WechatReplyClass
     	end
     end
 
+    # 微信文档: http://mp.weixin.qq.com/wiki/7/9f89d962eba4c5924ed95b513ba69d9b.html
     def subscribe
       openid = @weixin_message.FromUserName
       subscribed_user_info = Wechat.get_subscribed_user_info(openid)
